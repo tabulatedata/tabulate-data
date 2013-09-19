@@ -1,0 +1,7 @@
+# temp or directory files
+*.onetoc2
+*.DS_Store
+*.swp
+
+# installed tools
+/node_modules/*
