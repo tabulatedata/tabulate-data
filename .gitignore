@@ -5,3 +5,7 @@
 
 # installed tools
 /node_modules/*
+
+# compiled code
+all.min.*
+tabulate-data.min.js
