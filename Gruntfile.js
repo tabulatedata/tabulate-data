@@ -3,16 +3,31 @@ module.exports = function(grunt) {
         concat: {
             libs: {
                 files: {
-                    'src/js/lib/all.min.js': ['src/js/lib/jquery.min.js', 'src/js/lib/jquery.dataTables.min.js'],
-                    'src/css/all.min.css': ['src/css/dataTables-jui.css', 'src/css/jquery-ui.custom.css']
+                    'build/js/lib/all.min.js': ['src/js/lib/jquery.min.js', 'src/js/lib/jquery.dataTables.min.js'],
+                    'build/css/all.min.css': ['src/css/dataTables-jui.css', 'src/css/jquery-ui.custom.css']
                 }
             }
         },
         copy: {
-            all: {
-                files: {
-                    '../tabulatedata.github.io/src/': ['src/**/*']
-                }
+            html: {
+                files: [
+                    {
+                        expand: true,
+                        src: ['**'],
+                        dest: 'build/html/',
+                        cwd: 'src/html/'
+                    }
+                ]
+            },
+            toIO: {
+                files: [
+                    {
+                        expand: true,
+                        src: ['**'],
+                        dest: '../tabulatedata.github.io/src/',
+                        cwd: 'build/'
+                    }
+                ]
             }
         },
         jshint: {
@@ -24,7 +39,7 @@ module.exports = function(grunt) {
         uglify: {
             mainjs: {
                 files: {
-                    'src/js/tabulate-data.min.js': ['src/js/tabulate-data.js']
+                    'build/js/tabulate-data.min.js': ['src/js/tabulate-data.js']
                 }
             }
         },
@@ -35,7 +50,7 @@ module.exports = function(grunt) {
                 'src/js/lib/*.js',
                 'src/css/*.css'
             ],
-            tasks: ['jshint', 'concat:libs', 'uglify:mainjs', 'copy:all']
+            tasks: ['jshint', 'concat:libs', 'uglify:mainjs', 'copy:html', 'copy:toIO']
         }
     });
 
@@ -47,5 +62,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
 
     // run tasks
-    grunt.registerTask('default', ['jshint', 'concat:libs', 'uglify:mainjs', 'copy:all']);
+    grunt.registerTask('default', ['jshint', 'concat:libs', 'uglify:mainjs', 'copy:html', 'copy:toIO']);
 };

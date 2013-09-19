@@ -9,3 +9,4 @@
 # compiled code
 all.min.*
 tabulate-data.min.js
+build/*
