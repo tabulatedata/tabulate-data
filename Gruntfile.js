@@ -62,5 +62,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
 
     // run tasks
-    grunt.registerTask('default', ['jshint', 'concat:libs', 'uglify:mainjs', 'copy:html', 'copy:toIO']);
+    grunt.registerTask('default', ['jshint', 'concat:libs', 'uglify:mainjs', 'copy:html', 'copy:toIO', 'watch']);
 };
