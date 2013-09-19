@@ -19,6 +19,16 @@ module.exports = function(grunt) {
                     }
                 ]
             },
+            images: {
+                files: [
+                    {
+                        expand: true,
+                        src: ['**'],
+                        dest: 'build/css/images/',
+                        cwd: 'src/css/images/'
+                    }
+                ]
+            },
             toIO: {
                 files: [
                     {
@@ -48,9 +58,10 @@ module.exports = function(grunt) {
                 'src/html/*.html',
                 'src/js/*.js',
                 'src/js/lib/*.js',
-                'src/css/*.css'
+                'src/css/*.css',
+                'Gruntfile.js'
             ],
-            tasks: ['jshint', 'concat:libs', 'uglify:mainjs', 'copy:html', 'copy:toIO']
+            tasks: ['jshint', 'concat:libs', 'uglify:mainjs', 'copy:html', 'copy:images', 'copy:toIO']
         }
     });
 
@@ -62,5 +73,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
 
     // run tasks
-    grunt.registerTask('default', ['jshint', 'concat:libs', 'uglify:mainjs', 'copy:html', 'copy:toIO', 'watch']);
+    grunt.registerTask('default', ['jshint', 'concat:libs', 'uglify:mainjs', 'copy:html', 'copy:images', 'copy:toIO', 'watch']);
 };
