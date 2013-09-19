@@ -11,7 +11,7 @@ module.exports = function(grunt) {
         copy: {
             all: {
                 files: {
-                    '../tabulatedata.github.io/src/': ['src/**']
+                    '../tabulatedata.github.io/src/': ['src/**/*']
                 }
             }
         },
@@ -47,5 +47,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
 
     // run tasks
-    grunt.registerTask('default', ['jshint', 'concat:libs', 'uglify:mainjs']);
+    grunt.registerTask('default', ['jshint', 'concat:libs', 'uglify:mainjs', 'copy:all']);
 };
