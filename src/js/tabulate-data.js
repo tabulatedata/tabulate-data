@@ -79,7 +79,11 @@ function updateTable(newData){
     @returns {object} An object representing the parsed hash
 */
 function parseHash(){
-    return JSON.parse(location.hash.substring(1));
+    try {
+        return JSON.parse(location.hash.substring(1));
+    } catch(e){
+        return {};
+    }
 }
 
 /**
