@@ -195,4 +195,6 @@ $(function() {
     $(window).bind('hashchange', function(e){
         handleChangedHash();
     });
+
+    handleChangedHash();
 });
