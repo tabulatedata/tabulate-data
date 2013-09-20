@@ -120,9 +120,9 @@ function initTable(configData){
     ],
         tableConfig = {};
 
-    allowedDataConfigNames.forEach(function(allowedType){
-        if( configData[allowedType] ){
-            tableConfig[allowedType] = configData[allowedType];
+    Object.keys(configData).forEach(function( key ){
+        if( allowedDataConfigNames.indexOf(key) !== -1 ){
+            tableConfig[key] = configData[key];
         }
     });
 
