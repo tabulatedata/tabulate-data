@@ -80,7 +80,7 @@ function updateTable(newData){
 */
 function parseHash(){
     try {
-        return JSON.parse(location.hash.substring(1).replace(new RegExp('%22', '"')));
+        return JSON.parse(location.hash.substring(1).replace(new RegExp('%22', 'g'), '"'));
     } catch(e){
         return {};
     }
